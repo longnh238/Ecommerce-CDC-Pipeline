@@ -21,6 +21,8 @@ repositories {
 dependencies {
 	// Spring Boot (Reactive Web)
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
 
 	// Spring Boot Kafka for integration with Kafka
 	implementation 'org.springframework.kafka:spring-kafka:3.3.0'
@@ -33,10 +35,12 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok:1.18.34'
 
 	// Flink for stream processing
-	implementation 'org.apache.flink:flink-streaming-java_2.12:2.1.0'
-	implementation 'org.apache.flink:flink-connector-kafka_2.12:3.2.0-2.1'
-	implementation 'org.apache.flink:flink-clients_2.12:2.1.0'
-	implementation 'org.apache.flink:flink-table-api-java-bridge_2.12:2.1.0'
+	implementation 'org.apache.flink:flink-streaming-java:2.0.0'
+	implementation 'org.apache.flink:flink-clients:2.0.0'
+	implementation 'org.apache.flink:flink-table-api-java-bridge:2.0.0'
+	implementation 'org.apache.flink:flink-connector-kafka:4.0.1-2.0'
+
+	// Debeziu
 
 	// Debezium for CDC (embedded connector)
 	implementation 'io.debezium:debezium-connector-postgres:3.2.2.Final'
