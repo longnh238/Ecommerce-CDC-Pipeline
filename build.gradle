@@ -19,12 +19,43 @@ repositories {
 }
 
 dependencies {
+	// Spring Boot (Reactive Web)
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+	// Spring Boot Kafka for integration with Kafka
+	implementation 'org.springframework.kafka:spring-kafka:3.2.4'
+
+	// PostgreSQL JDBC driver for database connectivity
+	implementation 'org.postgresql:postgresql:42.7.4'
+
+	// Lombok for reducing boilerplate code
+	implementation 'org.projectlombok:lombok:1.18.34'
+	annotationProcessor 'org.projectlombok:lombok:1.18.34'
+
+	// Flink for stream processing
+	implementation 'org.apache.flink:flink-streaming-java:1.19.1'
+	implementation 'org.apache.flink:flink-connector-kafka:3.2.0-1.19'
+	implementation 'org.apache.flink:flink-clients:1.19.1'
+
+	// Debezium for CDC (embedded connector)
+	implementation 'io.debezium:debezium-connector-postgres:2.3.0.Final'
+	implementation 'io.debezium:debezium-api:2.3.0.Final'
+	implementation 'io.debezium:debezium-embedded:2.3.0.Final'
+
+	// Netty for custom sink
+	implementation 'io.netty:netty-all:4.1.114.Final'
+
+	// Testing dependencies
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.11.3'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+tasks.named('bootJar') {
+	archiveFileName = 'ecommerce-cdc-pipeline.jar'
 }
